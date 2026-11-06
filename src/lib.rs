@@ -4,4 +4,5 @@
 pub mod slab;
 pub mod buddy;
 
-pub use slab::SlabAllocator;
+pub use slab::{Slab, SlabCache};
+pub use buddy::{BuddyAllocator, FrameNum};

@@ -47,7 +47,7 @@ impl FrameNum {
     /// Check if this frame is aligned to 2^order
     #[inline]
     pub const fn is_aligned(self, order: usize) -> bool {
-        self.0 & ((1 << order).wrapping_sub(1)) == 0
+        self.0 & ((1usize << order).wrapping_sub(1)) == 0
     }
 }
 
