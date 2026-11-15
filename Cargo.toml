@@ -15,3 +15,7 @@ sigmaos_kernel = { version = "0.1", path = "../SigmaOS-kernel" }
 
 [profile.release]
 opt-level = 3
+
+[lib]
+name = "sigmaos_allocators"
+path = "src/lib.rs"
