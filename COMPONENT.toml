@@ -3,12 +3,12 @@ name = "SigmaOS-allocators"
 tier = 2
 stability = "scaffold"
 language = "rust"
-description = "allocators component"
+description = "Low-level Rust memory allocation primitives for SigmaOS, currently comprising a buddy frame allocator and slab allocation/cache code."
 upstream = []
 
 [contract]
 provides = ["component"]
-depends_on = []
+depends_on = ["SigmaOS-system"]
 
 [maturity]
 status = "Scaffold"
