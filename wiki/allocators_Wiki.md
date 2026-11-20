@@ -1,65 +1,50 @@
-# SigmaOS-allocators Component Wiki
+# SigmaOS-SigmaOS-allocators Component Wiki
 
 ## Overview
-SigmaOS-allocators provides custom allocator implementations and memory allocator support for the SigmaOS operating system. It demonstrates the allocator subsystem and custom memory management within the SigmaOS ecosystem, following the principles of clear abstraction and deterministic allocator initialization.
+SigmaOS-SigmaOS-allocators provides Low-level Rust memory allocation primitives for SigmaOS, currently comprising a buddy frame allocator and slab allocation/cache code. for the SigmaOS operating system. It demonstrates the subsystem and integration within the SigmaOS ecosystem, following the principles of clear abstraction and deterministic initialization.
 
 ## Principles
 - Single Responsibility
-- Allocator Abstraction
-- Fail-Fast on Allocator Initialization Errors
-- Deterministic Allocator Setup
-- Clear Abstraction Over Allocator APIs
-- Composition over Inheritance for allocator extensions
+- SigmaOS-allocators Abstraction
+- Fail-Fast on SigmaOS-allocators Initialization Errors
+- Deterministic SigmaOS-allocators Setup
+- Clear Abstraction Over SigmaOS-allocators APIs
+- Composition over Inheritance for SigmaOS-allocators extensions
 
 ## Architecture
-SigmaOS-allocators follows an allocator pattern:
-- **Allocator Core**: Provides custom memory allocator implementations, memory tracking, and allocator registration
-- **Memory Tracking**: Supports allocation tracking, memory profiling, and allocator metrics
-- **Allocator Registration**: Supports allocator registration, allocator switching, and allocator metrics
-- **Error Handling**: Fail-fast on invalid allocator configurations or unsupported allocator types
+SigmaOS-SigmaOS-allocators follows a SigmaOS-allocators pattern:
+- **SigmaOS-allocators Core**: Provides SigmaOS-allocators support, SigmaOS-allocators management, and SigmaOS-allocators tracking
+- **Management**: Supports SigmaOS-allocators management, SigmaOS-allocators configuration, and SigmaOS-allocators lifecycle
+- **Tracking**: Supports SigmaOS-allocators status, SigmaOS-allocators tracking, and SigmaOS-allocators lifecycle
+- **Error Handling**: Fail-fast on invalid SigmaOS-allocators configurations or unsupported SigmaOS-allocators types
 
 ## API
 The component provides the following public APIs:
-- `allocator::register(name, allocator)` - Register a custom allocator with given name
-- `allocator::use_allocator(name)` - Use a registered allocator by name
-- `allocator::status::trackers()` - Get allocator status and active trackers
-- `allocator::metrics::collect()` - Collect allocator metrics and memory statistics
-- Error types for allocator failure scenarios or unsupported allocator types
+-  - Manage a SigmaOS-allocators by given configuration
+-  - Register a SigmaOS-allocators by given name
+-  - Get SigmaOS-allocators status and SigmaOS-allocators availability
+-  - Track SigmaOS-allocators management and SigmaOS-allocators tracking
+- Error types for SigmaOS-allocators failure scenarios or unsupported SigmaOS-allocators types
 
 ## Test Structure (Arrange-Act-ASSERT)
 All tests follow the AAA pattern:
-1. **Arrange**: Set up test environment with specific allocator configuration
-2. **Act**: Execute the code under test (allocator registration, allocator usage)
-3. **Assert**: Verify the expected allocator results
+1. **Arrange**: Set up test environment with specific SigmaOS-allocators configuration
+2. **Act**: Execute the code under test (SigmaOS-allocators init, SigmaOS-allocators management)
+3. **Assert**: Verify the expected SigmaOS-allocators results
 
 Example:
-```rust
-#[test]
-fn test_allocator_register_aaa() {
-    // Arrange
-    let name = "jemalloc";
-    let allocator = CustomAllocator::new();
-    
-    // Act
-    let result = allocator::register(name, allocator);
-    
-    // Assert
-    assert!(result.is_ok());
-    let registered = result.unwrap();
-    assert!(registered.is_valid());
-}
-```
+
 
 ## Development
-- Follows Rust best practices with `#![forbid(unsafe_code)]`
-- Allocator initialization is best-effort; gracefully degrades on unsupported configurations
-- Comprehensive error types for all allocator failure scenarios
-- Unit tests provided for allocator registration and allocator usage
-- Integration tests for full allocator system with actual custom memory management
+- Follows Rust best practices with 
+- SigmaOS-allocators initialization is best-effort; gracefully degrades on unsupported configurations
+- Comprehensive error types for all SigmaOS-allocators failure scenarios
+- Unit tests provided for SigmaOS-allocators management and configuration
+- Integration tests for full SigmaOS-allocators system with actual SigmaOS-allocators integration
 
 ## TODO
-- Add support for additional allocators (jemalloc, mimalloc, tcmalloc)
-- Expand memory tracking capabilities (allocation traces, memory footprints, allocation history)
-- Add allocator features (fallback allocators, allocator switching, allocator metrics)
-- Create integration tests with actual custom allocator implementations
-- Implement allocator persistence and allocator state management
+- Add support for additional SigmaOS-allocators types
+- Expand SigmaOS-allocators capabilities (SigmaOS-allocators features, SigmaOS-allocators configurations, SigmaOS-allocators tracking)
+- Add lifecycle features (SigmaOS-allocators tracking, SigmaOS-allocators lifecycle, SigmaOS-allocators propagation)
+- Create integration tests with actual SigmaOS-allocators systems and SigmaOS-allocators integration
+- Implement SigmaOS-allocators persistence and SigmaOS-allocators state management
